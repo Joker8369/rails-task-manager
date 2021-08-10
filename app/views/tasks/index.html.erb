@@ -1,0 +1,18 @@
+
+<h2>Mes Tâches</h2>
+<ul>
+<% @tasks.each do|task|%>
+<li>
+<%= link_to task.title, task_path(task) %><br>
+<span class="emoji"><%= task.completed? ? "🌞" : "🌧️" %></span><br>
+<%= link_to "Delete #{task.title}",
+            task_path(task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %><br>
+</li>
+<br>
+<% end %>
+</ul>
+<%= link_to "Add a new task", new_path%>
+
+<p> Finish !</p>
